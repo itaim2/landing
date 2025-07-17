@@ -1,0 +1,795 @@
+/* בסיס */
+* {
+    font-family: 'Rubik', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    direction: rtl;
+    background-color: #fff;
+    line-height: 1.6;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2 {
+    line-height: 1.3;
+    font-weight: 800;
+}
+
+p {
+    font-size: 1.4rem;
+    color: #444;
+    margin-bottom: 1.2rem;
+}
+
+/* כפתור */
+button {
+    background: linear-gradient(90deg, #FF7A18, #FFB347);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to left, #FFB347, #FF7A18);
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Header */
+.head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url("ChatGPT Image Jul 10, 2025, 04_12_09 PM.png") center/cover no-repeat;
+    height: 100vh;
+    padding: 2rem;
+    color: white;
+}
+
+.head .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.text-header {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+
+}
+
+.text-header h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.text-header p {
+    margin-bottom: 2rem;
+    color: white;
+}
+
+/* סקשן כאב */
+.section-pain {
+    background: #FFF9F4;
+    padding: 6rem 2rem;
+}
+
+.section-pain .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.section-pain .text {
+    flex: 1;
+    text-align: right;
+}
+
+.section-pain h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-pain h2 .highlight {
+    color: #FF7A18;
+}
+
+.section-pain .image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.img-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.img-wrapper img {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.img-wrapper img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* סקשן פתרון */
+.section-solution {
+    background-color: #FFF9F4;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section-solution .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.solution-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+}
+
+.solution-text {
+    color: #444;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.highlight-orange {
+    color: #FF7A18;
+    font-weight: 700;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(to left, #FFB347, #FF7A18);
+    color: white;
+    font-size: 1.1rem;
+    padding: 14px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.text-header .cta-button {
+    transform: translateY(0);
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: var(--d);
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to left, #e76b10, #cc5f12);
+
+}
+
+/* סקשן יתרונות */
+.section-benefits {
+    background-color: #FFF9F4;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.4rem;
+    color: #444;
+    margin-bottom: 3rem;
+}
+
+.benefits-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.benefit-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: right;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 250px;
+}
+
+.benefit-card:hover {
+    transform: scale(1.03);
+}
+
+.icon-wrapper {
+    width: 48px;
+    height: 48px;
+    background-color: #FFB347;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.4rem;
+    color: #ff6b00;
+}
+
+.icon-wrapper img {
+    width: 30px;
+    height: 30px;
+}
+
+.benefit-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.benefit-card p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* סקשן עדויות */
+.section-testimonials {
+    background-color: #FFF9F4;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.section-testimonials .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonials-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 3rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 3rem;
+}
+
+.testimonial-card {
+    background-color: #11263C;
+    border-radius: 16px;
+    padding: 32px 24px;
+    color: white;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    background-color: #163452;
+}
+
+.testimonial-text {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-align: right;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    color: #FFB347;
+    font-size: 1.2rem;
+}
+/*איך זה עובד*/
+
+.section-steps {
+    background-color: #FFF9F4;
+    padding: 4rem 2rem;
+    direction: rtl;
+}
+
+.steps-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.steps-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.step-box {
+    flex: 1 1 300px;
+    max-width: 500px;
+    background: white;
+    border-radius: 16px;
+    padding: 1rem 1.5rem 0 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+.step-box h3 {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #000000;
+    margin: 0.5rem;
+}
+
+.step-box p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.step-circle {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #FF7A18;
+    color: white;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.video-wrapper {
+    overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: none;
+}
+/* סקשן שאלות תשובות */
+.faq-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #FFF9F4;
+}
+
+.faq-title {
+    font-weight: 800;
+    font-size: 2.4rem;
+    line-height: 1.3;
+    color: #1a1a1a;
+    margin-bottom: 2.5rem;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.faq-item:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transform: scale(1.05);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.faq-item[open] {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: scale(1.01);
+}
+
+.faq-question {
+    padding: 1.2rem 2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    cursor: pointer;
+    list-style: none;
+    text-align: right;
+    position: relative;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.faq-question:hover {
+    background-color: #FFF2E6;
+    color: #FF7A18;
+}
+
+
+details[open] .faq-question::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    font-size: 1.05rem;
+    color: #444;
+    background-color: #fffaf4;
+    border-top: 1px solid #FFB347;
+    text-align: right;
+    line-height: 1.7;
+    padding: 0 2rem;
+}
+
+details[open] .faq-answer {
+    padding: 1.2rem 2rem;
+}
+/*הנעה לפעולה*/
+.cta-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: right;
+    padding: 3rem 1rem;
+    gap: 2rem;
+    background-color: #FFB347;
+
+}
+
+.text-area {
+    max-width: 700px;
+    color: #1a1a1a;
+    text-align: center;
+
+}
+
+.text-area h2 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+
+}
+
+.text-area .highlight {
+    color: #FF5700;
+}
+
+.text-area p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+.bold {
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.form-box {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-box h3 {
+    margin-top: 0;
+    font-weight: 800;
+    color: #1a1a1a;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+
+}
+
+.form-box p {
+    color: #444;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    font-size: 1rem;
+    color: #1a1a1a;
+
+}
+
+input {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    font-size: 1rem;
+}
+
+button {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: linear-gradient(to left, #FFB347, #FF7A18);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to left, #FFA500, #FF6B00);
+}
+/*כאן מתחילים הבונוסים*/
+.section-bonus {
+    padding: 3rem 1rem;
+}
+
+.section-bonus h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.section-bonus .highlight {
+    color: #1a1a1a;
+    font-weight: 800;
+}
+
+.section-bonus p {
+    color: #444;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.bonus-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: row-reverse;
+}
+
+.bonus-card {
+    background: white;
+    border: 2px solid #FF7A18;
+    border-radius: 16px;
+    padding: 1rem 1rem;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.badge {
+    background: linear-gradient(to left, #FFB347, #FF7A18);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 999px;
+    padding: 0.3rem 1rem;
+    font-size: 0.9rem;
+    position: absolute;
+    top: -0.9rem;
+    right: 50%;
+    transform: translateX(50%);
+    border: 1px solid #FF7A18;
+}
+
+.bonus-card h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-top: 1.5rem;
+    color: #FF7A18;
+    text-align: center;
+}
+
+.bonus-card .brand {
+    color: #FF7A18;
+}
+
+.bonus-card p {
+    color: #444;
+    font-size: 1.2rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.bonus-card button {
+    padding: 0.8rem;
+    background: linear-gradient(to left, #FFB347, #FF7A18);
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.bonus-card button:hover {
+    transform: scale(1.05);
+}
+/*footer*/
+.main-footer {
+    background-color:#ffffff;
+    padding: 2rem 1rem;
+    border-top: 1px solid #eee;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    margin-top: auto; /* 👈 זו השורה החדשה */
+}
+
+.container-footer {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-text {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    direction: LTR;
+}
+/*animation*/
+.text-header > * {
+    opacity: 0;
+    transform: translateY(40px);
+    animation:
+            fadeIn 0.6s ease-out forwards,
+            slideUp 0.6s ease-out forwards;
+    animation-delay: var(--d);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+    }
+}
+/* -----------------------------------------------------------------
+   Mobile & Tablet responsiveness – add at the very bottom of landing3.css
+   ----------------------------------------------------------------- */
+
+/* טאבלטים עד 992 px – שני טורים במקום שלושה */
+@media (max-width: 992px) {
+
+    /* הופכים את החלק “הכאב” לערימה – טקסט מעל תמונה */
+    .section-pain .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* גריד 2×2 ל-benefits ול-testimonials */
+    .benefits-grid,
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* מובייל עד 768 px – עמודה אחת בכל מקום */
+@media (max-width: 768px) {
+
+    /* גובה header קטן, ריווח */
+    .head            { min-height: 80vh; padding: 1.5rem; }
+    .text-header h1  { font-size: 2.2rem; }
+    .text-header p   { font-size: 1rem; }
+
+    /* טורי-גריד → טור יחיד */
+    .benefits-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* שלבי הסרטונים – סרטון אחד בשורה, רוחב min 600 px */
+    .steps-grid { grid-template-columns: 1fr; }  /* טור בודד במובייל */
+    .step-box        { flex: 1 1 600px; max-width: 100%; }
+
+    /* “איך זה עובד” – כותרות/פסקאות מעט קטנות */
+    .step-box h3     { font-size: 1.1rem; }
+    .step-box p,
+    .faq-answer      { font-size: 1rem; }
+
+    /* FAQ – יותר ריווח ופונט קטן */
+    .faq-question    { font-size: 1.1rem; }
+
+    /* בונוסים – כרטיסים אחד מתחת לשני */
+    .bonus-grid      { flex-direction: column; }
+    .bonus-card      { max-width: 100%; }
+
+    /* CTA – הטופס והטקסט נערמים (כבר Flex-column) */
+    .form-box        { max-width: 100%; }
+}
+
+
+
+
+
+
+
+
+
+
+
