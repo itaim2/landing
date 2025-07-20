@@ -402,23 +402,21 @@
     </div>
 
     <div class="form-box">
-        <h3>הגיע הזמן שלך לקחת את העסק בידיים!</h3>
+        <h3>הצטרפי עכשיו</h3>
         <p>מלאי את הפרטים והתחילי את תקופת הניסיון בחינם</p>
-        <form action="https://ravxx-subscriber-v1.ravpage.co.il/" method="POST">
-            <label for="name">שם מלא</label>
-            <input type="text" id="name" name="fields[subscribers_name]" required>
 
+        <form method="post" action="https://subscribe.responder.co.il" onsubmit="return responder_validation(this);">
             <label for="email">אימייל</label>
-            <input type="email" id="email" name="fields[subscribers_email]" required>
+            <input type="text" id="email" name="fields[subscribers_email]" dir="ltr" required>
 
-            <label for="phone">טלפון</label>
-            <input type="tel" id="phone" name="fields[subscribers_phone]" required>
+            <label for="name">שם מלא</label>
+            <input type="text" id="name" name="fields[subscribers_name]" dir="rtl" required>
 
-            <!-- שדות מוסתרים חובה -->
-            <input type="hidden" name="__ravxx_url__" value="http://form.ravpage.co.il/4875a953ca7f68ae2f8888c305af600468710828">
-            <input type="hidden" name="__ravxx_source_info__" value='{"public_id":"4875a953ca7f68ae2f8888c305af600468710828","normalized_url":"http:\/\/form.ravpage.co.il\/4875a953ca7f68ae2f8888c305af600468710828","url":"http:\/\/form.ravpage.co.il\/4875a953ca7f68ae2f8888c305af600468710828","group":"4a4f171b80711f107db6fa6b195c4d94"}'>
-            <input type="hidden" name="form_id" value="2779823">
-            <input type="hidden" name="encoding" value="utf-8">
+            <label for="phone">טלפון נייד</label>
+            <input type="text" id="phone" name="fields[subscribers_phone]" dir="ltr" required>
+
+            <input type="hidden" name="form_id" value="2782991" />
+            <input type="hidden" name="encoding" value="" />
 
             <button type="submit">אני רוצה להתחיל</button>
         </form>
@@ -486,6 +484,53 @@
             answer.style.maxHeight = answer.scrollHeight + 'px';
         }
     });
+    /*טופס הרשמה*/
+        function responder_validation(form) {
+        var inputs = form.getElementsByTagName('input');
+        var filter_email = /^([\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*[\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+@((((([a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z0-9])\.)+[a-z]{2,})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$/i;
+        var filter_phone = /^(?:050|051|052|053|054|055|057|058|072|073|074|076|077|079|02|03|04|08|09)\d{7}$/;
+
+        for (var a = 0; a < inputs.length; a++) {
+        switch (inputs[a].name) {
+        case 'fields[subscribers_email]':
+        if (!filter_email.test(inputs[a].value)) {
+        alert('כתובת הדוא"ל אינה חוקית');
+        inputs[a].focus();
+        return false;
+    }
+        break;
+        case 'fields[subscribers_phone]':
+        var phone = inputs[a].value.replace(/-|\s/g, '');
+        if (!filter_phone.test(phone.length == 0 || phone.charAt(0) == '0' ? phone : '0' + phone)) {
+        alert('מספר הטלפון הנייד אינו חוקי');
+        inputs[a].focus();
+        return false;
+    }
+        break;
+        case 'fields[subscribers_name]':
+        if (inputs[a].value.trim() === '') {
+        alert('נא לרשום שם');
+        inputs[a].focus();
+        return false;
+    }
+        break;
+    }
+    }
+
+        if (document.charset)
+        form.encoding.value = document.charset;
+        else if (document.defaultCharset)
+        form.encoding.value = document.defaultCharset;
+        else if (document.characterSet)
+        form.encoding.value = document.characterSet;
+
+        if (navigator.userAgent.indexOf(';FBAV/') > -1 || navigator.userAgent.indexOf('Instagram') > -1) {
+        form.target = '_self';
+    }
+
+        return true;
+    }
+
 </script>
     </body>
 </html>
